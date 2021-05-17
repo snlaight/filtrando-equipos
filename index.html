@@ -8,41 +8,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
 </head>
-<body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">LaLiga</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Clasificacion</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Ligas
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Alemania</a></li>
-                  <li><a class="dropdown-item" href="#">España</a></li>
-                  <li><a class="dropdown-item" href="#">Polonia</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Estadisticas</a>
-              </li>
-            </ul>
-        </nav>
-    <div class="title">
-        <h1>Partidos Liga 2021</h1>
-    </div>
+<body>  
+  <nav class="sticky-top header"> 
+  <ul class="nav nav-tabs justify-content-center" role="navigation">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">PARTIDOS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="standings.html">STANDINGS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">RESULTADOS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">ESTADISTICAS</a>
+    </li>
+  </ul>
+</nav>
+  
 <div class="table-container">
-    <table class="table">
+    <!-- <table class="table">
         <caption>Fecha 1</caption>
         <thead class="table-light">
         <th>Equipo Visitante</th>
@@ -52,18 +37,15 @@
     <tbody id="fecha-1">
 
     </tbody>
-</table>
-    <table class="table">
-    <caption>Resultados de la Liga 2021</caption>
-    <thead class="table-dark">
-    <th>Equipo Visitante</th>
-    <th>Resultado</th>
-    <th>Equipo Casa</th>
-  </thead>
-<tbody id="table-body">
+</table> -->
+<div class="result-container">   
+<table class="table table-bordered table-hover">
+    <caption class="caption-top">Resultados de la Liga 2021</caption>
+<tbody id="table-body" class="align-middle">
 
 </tbody>
 </table>
+</div>
 <!-- <table>
     <caption>Partidos a jugar</caption>
 <tbody id="table-scheduled">
@@ -71,8 +53,8 @@
 </tbody>
 </table> -->
 
-<table class="table">
-  <caption>Standings</caption>
+<!-- <table class="table table-bordered">
+  <caption class="caption-top">Standings</caption>
 <thead class="table-dark"> 
   <th>Posición</th>
   <th>Equipo</th>
@@ -84,7 +66,7 @@
   <tbody id="standings2021">
 
   </tbody>
-</table>
+</table> -->
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 <script src="standings.js"></script>

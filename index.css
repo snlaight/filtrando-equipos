@@ -1,10 +1,24 @@
 .table-container {
     display: flex;
     justify-content: space-around;
+    background-color: #f8f9fa;
 }
-table {
-    border: 1px solid black;
+.result-container {
+    background-color: white;
+    text-align: center;
 }
 .title {
     text-align:center; 
 }
+.header {
+    background-color: #003472;
+    padding: 20px;
+}
+.nav-link {
+    color: white;
+}
+.nav-tabs {
+    border-bottom: 0px;
+    border-radius: 5px;
+}
+
