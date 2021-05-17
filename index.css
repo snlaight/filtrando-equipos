@@ -1,0 +1,10 @@
+.table-container {
+    display: flex;
+    justify-content: space-around;
+}
+table {
+    border: 1px solid black;
+}
+.title {
+    text-align:center; 
+}
