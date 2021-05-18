@@ -34,13 +34,14 @@ th {
     width: 20px;
 }
 .standings-table tr:nth-of-type(-n+5) {
-    background:rgba(0, 0, 255, 0.068);
+    background: linear-gradient(to right, #0000ff, #0000ff 0.1rem, transparent 1.3rem, transparent 100%);
 }
 
 .standings-table tr:nth-of-type(6), .standings-table tr:nth-of-type(7) {
-    background: rgba(0, 128, 0, 0.212);   
+    background: linear-gradient(to right, #008000, #008000 0.1rem, transparent 1.3rem, transparent 100%);   
 }
 
 .standings-table tr:nth-last-child(1), .standings-table tr:nth-last-child(2), .standings-table tr:nth-last-child(3){
-    background:rgba(255, 0, 0, 0.116);   
+    background:linear-gradient( to right, red, red 0.1rem,transparent 1.3rem,transparent 100%); 
+    
 }
