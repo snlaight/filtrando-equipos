@@ -1,3 +1,8 @@
+* {
+    font-family: "Nunito";
+}
+
+
 .table-container {
     display: flex;
     justify-content: space-around;
@@ -21,4 +26,21 @@
     border-bottom: 0px;
     border-radius: 5px;
 }
+th {
+    color: #70757a;
+}
+.logo {
+    height: auto;
+    width: 20px;
+}
+.standings-table tr:nth-of-type(-n+5) {
+    background:rgba(0, 0, 255, 0.068);
+}
 
+.standings-table tr:nth-of-type(6), .standings-table tr:nth-of-type(7) {
+    background: rgba(0, 128, 0, 0.212);   
+}
+
+.standings-table tr:nth-last-child(1), .standings-table tr:nth-last-child(2), .standings-table tr:nth-last-child(3){
+    background:rgba(255, 0, 0, 0.116);   
+}

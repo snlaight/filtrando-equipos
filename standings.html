@@ -12,34 +12,40 @@
     <nav class="sticky-top header" role="navigation"> 
         <ul class="nav nav-tabs justify-content-center">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">PARTIDOS</a>
+            <a class="nav-link active" aria-current="page" href="index.html">RESULTADOS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="standings.html">STANDINGS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">RESULTADOS</a>
+            <a class="nav-link" href="#">PARTIDOS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">ESTADISTICAS</a>
           </li>
         </ul>
       </nav>
+    
     <div class="table-container">
-      <table class="table table-bordered">
-        <caption class="caption-top">Standings</caption>
-      <thead class="table-dark"> 
+      <div class="result-container">
+      <table class="table table-bordered standings-table">
+      <thead class="table-light"> 
         <th>Posición</th>
-        <th>Equipo</th>
-        <th>Puntos</th>
+        <th colspan="2">Equipo</th>
         <th>PG</th>
         <th>PP</th>
         <th>PE</th>
+        <th>DG</th>
+        <th>GF</th>
+        <th>GC</th>
+        <th>Puntos</th>
+        <th>Ultimos 5</th>
       </thead>
         <tbody id="standings2021">
       
         </tbody>
       </table>
+    </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 <script src="standings.js"></script>
