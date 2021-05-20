@@ -23,7 +23,7 @@ for (let i = 0; i < positionTable.length; i++) {
   }
   if ((positionTable[0].type = "TOTAL")) {
     let tr = document.createElement("tr");
-    tr.innerHTML = `<td>${positionTable[i].position}</td><td><img class="logo" src="${positionTable[i].team.crestUrl}"></td><td>${positionTable[i].team.name}</td><td>${positionTable[i].won}</td><td>${positionTable[i].lost}</td><td>${positionTable[i].draw}</td><td>${positionTable[i].goalDifference}</td><td>${positionTable[i].goalsFor}</td><td>${positionTable[i].goalsAgainst}</td><td>${positionTable[i].points}</td><td class="form"><img src=${formIcons[0]}></td><td class="form"><img src=${formIcons[1]}></td><td class="form"><img src=${formIcons[2]}></td><td class="form"><img src=${formIcons[3]}></td><td class="form"><img src=${formIcons[4]}></td>`;
+    tr.innerHTML = `<td>${positionTable[i].position}</td><td><img class="logo" src="${positionTable[i].team.crestUrl}"></td><td>${positionTable[i].team.name}</td><td>${positionTable[i].won}</td><td>${positionTable[i].lost}</td><td>${positionTable[i].draw}</td><td>${positionTable[i].goalDifference}</td><td>${positionTable[i].goalsFor}</td><td>${positionTable[i].goalsAgainst}</td><td>${positionTable[i].points}</td><td class="form"><img src=${formIcons[0]}><img src=${formIcons[1]}><img src=${formIcons[2]}><img src=${formIcons[3]}><img src=${formIcons[4]}></td>`;
     standings2021.appendChild(tr);
   }
 }

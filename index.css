@@ -38,6 +38,9 @@ th {
     height: auto;
     width: 20px;
 }
+.form img{
+    padding: 0vw 0.2vw;
+}
 .standings-table tr:nth-of-type(-n+4) {
     background: linear-gradient(to right, #0000ff, #0000ff 0.1rem, transparent 1.3rem, transparent 100%);
 }
