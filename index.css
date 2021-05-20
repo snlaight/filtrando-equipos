@@ -59,6 +59,7 @@ th {
     background: #f8f9fa;
     border: 1px solid #ebebeb;
     margin: 0px 10px;
+    border-radius:5px;
 }
 .my-legend h6{
     font-weight: bold;
