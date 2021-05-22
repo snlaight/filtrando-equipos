@@ -12,6 +12,9 @@ ul{
     background-color: #f8f9fa;
     padding-bottom: 10px;
 }
+.homeTeam {
+    border: none;
+}
 .result-container {
     background-color: white;
     text-align: center;
@@ -31,6 +34,7 @@ ul{
     border-bottom: 0px;
     border-radius: 5px;
 }
+
 th {
     color: #70757a;
 }

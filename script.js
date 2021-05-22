@@ -1,5 +1,4 @@
-let filteredMatches = matches[0].matches;
-console.log(filteredMatches[0]);
+let partidos = matches[0].matches;
 
 let tableBody= document.getElementById('table-body');
 let tableScheduled = document.getElementById('table-scheduled');
@@ -8,13 +7,30 @@ let standings2021 = document.getElementById('standings2021')
 
 //RESULTADOS
 
-for(let i=0; i<filteredMatches.length; i++){
-    if(filteredMatches[i].status == "FINISHED") {
-    let tr= document.createElement("tr");
-    tr.innerHTML = `<td>${filteredMatches[i].awayTeam.name}</td><td>${filteredMatches[i].score.fullTime.awayTeam} - ${filteredMatches[i].score.fullTime.homeTeam} </td> <td>${filteredMatches[i].homeTeam.name}</td>`;
-    tableBody.appendChild(tr)
+// for(let i=0; i<filteredMatches.length; i++){
+//     if(filteredMatches[i].status == "FINISHED") {
+//     let tr= document.createElement("tr");
+//     tr.innerHTML = `<td>${filteredMatches[i].homeTeam.name}</td><td><img class="logo" src="https://crests.football-data.org/${filteredMatches[i].homeTeam.id}.svg"></td>
+//     <td>${filteredMatches[i].score.fullTime.awayTeam} - ${filteredMatches[i].score.fullTime.homeTeam} </td> 
+//     <td><img class="logo" src="https://crests.football-data.org/${filteredMatches[i].awayTeam.id}.svg"></td><td>${filteredMatches[i].awayTeam.name}</td>`;
+//     tableBody.appendChild(tr)
+//     }
+// }
+
+let resultados2021 = function (filteredMatches){
+    for(let i=0; i<filteredMatches.length; i++){
+        if(filteredMatches[i].status == "FINISHED") {
+        let tr= document.createElement("tr");
+        tr.innerHTML = `<td>${filteredMatches[i].homeTeam.name}</td><td><img class="logo" src="https://crests.football-data.org/${filteredMatches[i].homeTeam.id}.svg"></td>
+        <td>${filteredMatches[i].score.fullTime.awayTeam} - ${filteredMatches[i].score.fullTime.homeTeam} </td> 
+        <td><img class="logo" src="https://crests.football-data.org/${filteredMatches[i].awayTeam.id}.svg"></td><td>${filteredMatches[i].awayTeam.name}</td>`;
+        tableBody.appendChild(tr)
+        }
     }
 }
+
+resultados2021(partidos);
+
 
 // for (let i=0; i<filteredMatches.length; i++){
 //     if(filteredMatches[i].status=="SCHEDULED"){
