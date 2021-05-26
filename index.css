@@ -5,7 +5,6 @@
 ul{
     list-style-type: none;
 }
-
 .table-container {
     display: flex;
     justify-content: space-around;

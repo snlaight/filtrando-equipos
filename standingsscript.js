@@ -1,7 +1,6 @@
 let standings2021 = document.getElementById("standings2021");
 
- let positions = standings[0].standings[0].table;
-
+let positions = standings[0].standings[0].table;
 
 let formW = "images/download.svg";
 let formD = "images/draw.svg";
@@ -35,10 +34,8 @@ let formL = "images/loss.svg";
 //     standings2021.appendChild(tr);
 //   }
 // }
-let hola = "Hola";
-console.log(hola)
-let standingsNew = function(positionTable){
-  console.log(hola);
+
+let standingsNew = function (positionTable) {
   for (let i = 0; i < positionTable.length; i++) {
     let form = positionTable[i].form;
     let formString = form.split(",");
@@ -66,11 +63,8 @@ let standingsNew = function(positionTable){
       standings2021.appendChild(tr);
     }
   }
-}
+};
 standingsNew(positions);
-
-console.log(hola)
-
 
 // let formW = formString[0];
 // let formD = formString[1];
