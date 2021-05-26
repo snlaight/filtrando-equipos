@@ -7,11 +7,12 @@ let newStats = [];
 let estadisticas = (teams) => {
   for (let i = 0; i < teams.length; i++) {
     let name = teams[i].team.name;
+    let logoID = teams[i].team.id;
     let golesEquipo = teams[i].goalsFor;
     let partidosEquipo = teams[i].playedGames;
     let promedioGol = golesEquipo / partidosEquipo;
     let promediGolRedondado = round(promedioGol);
-    let equipoNuevo = {name: name, goalsFor: golesEquipo, PG:partidosEquipo ,avg:promediGolRedondado};
+    let equipoNuevo = {name: name,logoID:logoID, goalsFor: golesEquipo, PG:partidosEquipo ,avg:promediGolRedondado};
     newStats.push(equipoNuevo)
   }
   
