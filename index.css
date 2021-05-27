@@ -56,6 +56,15 @@ th {
     background:linear-gradient( to right, red, red 0.1rem,transparent 1.3rem,transparent 100%); 
     
 }
+.inputContainer {
+    padding-top: 20px;
+}
+.teamInput {
+    width: 280px;
+    text-align: center;
+}
+
+/* CSS DE LEYENDA */
 .my-legend {
     display: flex;
     flex-direction: row;

@@ -28,7 +28,9 @@ let estadisticas = (teams) => {
   });
   console.log(sortedStats);
 };
+
 console.log(newStats);
+
 let round = (num, decimales = 2) => {
   var signo = num >= 0 ? 1 : -1;
   num = num * signo;
@@ -53,7 +55,18 @@ let pintarTablaPromedio = (array) => {
   }
 };
 
+let pintarTablaPromedioLimitada = (array) => {
+  for (let i = 0; i < 5; i++) {
+    let tr = document.createElement("tr");
+    tr.innerHTML = `
+    <td><img class="logo" src="https://crests.football-data.org/${array[i].logoID}.svg"></td>
+    <td>${array[i].name}</td><td>${array[i].PG}</td>
+    <td>${array[i].avg}</td>`;
+
+    goalAverage.appendChild(tr);
+  }
+};
 
 //DECLARACION FUNCIONES
 estadisticas(table);
-pintarTablaPromedio(newStats);
+pintarTablaPromedioLimitada(newStats);
