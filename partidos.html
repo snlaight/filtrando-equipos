@@ -44,18 +44,22 @@
     </nav>
 <div class="table-container">
   <div class="inputContainer">
-
-  <input type="text" class="teamInput" placeholder="Nombre Equipo"> <button type ="button" class="btn btn-outline-secondary">BUSCAR RESULTADOS</button>
+  <input type="text" class="teamInput" id="NombreEquipo"placeholder="Nombre Equipo"> <button type ="button" class="btn btn-outline-secondary">BUSCAR RESULTADOS</button>
   <div class="radio-container input-group">
     <div class="input-group-prepend">
-    <input type="checkbox" name="" id=""> GANADOS
-    <input type="checkbox" name="" id=""> PERDIDOS
-    <input type="checkbox" name="" id=""> EMPATADOS
+    <input type="radio" class ="filtroPartidos" name="filtroPartidos" id="radio-ganado"> GANADOS
+    <input type="radio" class="filtroPartidos" name="filtroPartidos" id="radio-perdido"> PERDIDOS
+    <input type="radio" class="filtroPartidos" name="filtroPartidos" id="radio-empatado"> EMPATADOS
   </div>
   </div>
 </div>
+</div>
+<table class="table table-bordered table-hover">
+ 
+  <tbody id="equipoFiltrado">
 
-</div>
+  </tbody>
+</table>
 </div>
 
 
