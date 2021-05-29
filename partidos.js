@@ -57,8 +57,6 @@ fetch("./standings.json")
 
     //DECLARACION FUNCIONES
     pintarTablaPromedio(Standings);
-
-   
   });
 
 //DECLARACION FUNCIONES
@@ -90,15 +88,18 @@ let obtenerPartidos = (partidos) => {
   } else {
     for (let i = 0; i < partidos.length; i++) {
       if (
-        partidos[i].awayTeam.name == equipoElegido ||
-        partidos[i].homeTeam.name == equipoElegido
+        radioGanado.checked == true &&
+        ((partidos[i].score.winner == "HOME_TEAM" &&
+          partidos[i].homeTeam.name == equipoElegido) ||
+          (partidos[i].score.winner == "AWAY_TEAM" &&
+            partidos[i].awayTeam.name == equipoElegido))
       ) {
         partidosEquipo.push(partidos[i]);
       }
     }
     limpiarPagina();
     console.log(partidosEquipo);
-    pintarTablaPartidos(partidosEquipo)
+    pintarTablaPartidos(partidosEquipo);
   }
 };
 
@@ -127,4 +128,3 @@ let pintarTablaPartidos = (partidos) => {
     cuerpoTablaPartidos.appendChild(tr);
   }
 };
-
