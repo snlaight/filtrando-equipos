@@ -44,7 +44,7 @@
     </nav>
 <div class="table-container">
   <div class="inputContainer">
-  <input type="text" class="teamInput" id="NombreEquipo"placeholder="Nombre Equipo"> <button type ="button" class="btn btn-outline-secondary">BUSCAR RESULTADOS</button>
+  <input type="text" class="teamInput" id="NombreEquipo"placeholder="Nombre Equipo"> <button type ="button" class="btn btn-outline-secondary" onclick="botonPulsado()" >BUSCAR RESULTADOS</button>
   <div class="radio-container input-group">
     <div class="input-group-prepend">
     <input type="radio" class ="filtroPartidos" name="filtroPartidos" id="radio-ganado"> GANADOS
@@ -54,14 +54,27 @@
   </div>
 </div>
 </div>
+<div class="table-container">
+<div class="result-container">
 <table class="table table-bordered table-hover">
- 
-  <tbody id="equipoFiltrado">
+ <thead id="cabezaTabla" class="table-light">
+
+ </thead>
+  <tbody id="equipoFiltrado" class="align-middle">
 
   </tbody>
 </table>
-</div>
+<table class="table table-bordered table-hover">
+  <thead id="cabezaTablaPartidos">
 
+  </thead>
+  <tbody class="partidosEquipo">
+    
+  </tbody>
+</table>
+<p id="error"></p>
+</div>
+</div>
 
 
 

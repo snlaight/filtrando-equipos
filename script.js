@@ -1,9 +1,8 @@
 let partidos = matches[0].matches;
 
-let tableBody= document.getElementById('table-body');
-let tableScheduled = document.getElementById('table-scheduled');
-let standings2021 = document.getElementById('standings2021')
-
+let tableBody = document.getElementById("table-body");
+let tableScheduled = document.getElementById("table-scheduled");
+let standings2021 = document.getElementById("standings2021");
 
 //RESULTADOS
 
@@ -11,26 +10,25 @@ let standings2021 = document.getElementById('standings2021')
 //     if(filteredMatches[i].status == "FINISHED") {
 //     let tr= document.createElement("tr");
 //     tr.innerHTML = `<td>${filteredMatches[i].homeTeam.name}</td><td><img class="logo" src="https://crests.football-data.org/${filteredMatches[i].homeTeam.id}.svg"></td>
-//     <td>${filteredMatches[i].score.fullTime.awayTeam} - ${filteredMatches[i].score.fullTime.homeTeam} </td> 
+//     <td>${filteredMatches[i].score.fullTime.awayTeam} - ${filteredMatches[i].score.fullTime.homeTeam} </td>
 //     <td><img class="logo" src="https://crests.football-data.org/${filteredMatches[i].awayTeam.id}.svg"></td><td>${filteredMatches[i].awayTeam.name}</td>`;
 //     tableBody.appendChild(tr)
 //     }
 // }
 
-let resultados2021 = function (filteredMatches){
-    for(let i=0; i<filteredMatches.length; i++){
-        if(filteredMatches[i].status == "FINISHED") {
-        let tr= document.createElement("tr");
-        tr.innerHTML = `<td>${filteredMatches[i].homeTeam.name}</td><td><img class="logo" src="https://crests.football-data.org/${filteredMatches[i].homeTeam.id}.svg"></td>
+let resultados2021 = function (filteredMatches) {
+  for (let i = 0; i < filteredMatches.length; i++) {
+    if (filteredMatches[i].status == "FINISHED") {
+      let tr = document.createElement("tr");
+      tr.innerHTML = `<td>${filteredMatches[i].homeTeam.name}</td><td><img class="logo" src="https://crests.football-data.org/${filteredMatches[i].homeTeam.id}.svg"></td>
         <td>${filteredMatches[i].score.fullTime.awayTeam} - ${filteredMatches[i].score.fullTime.homeTeam} </td> 
         <td><img class="logo" src="https://crests.football-data.org/${filteredMatches[i].awayTeam.id}.svg"></td><td>${filteredMatches[i].awayTeam.name}</td>`;
-        tableBody.appendChild(tr)
-        }
+      tableBody.appendChild(tr);
     }
-}
+  }
+};
 
 resultados2021(partidos);
-
 
 // for (let i=0; i<filteredMatches.length; i++){
 //     if(filteredMatches[i].status=="SCHEDULED"){
@@ -39,7 +37,6 @@ resultados2021(partidos);
 //         tableScheduled.appendChild(tr)
 //     }
 // }
-
 
 //MATCHDAY 1 script
 
@@ -51,8 +48,7 @@ resultados2021(partidos);
 //         }
 //  }
 
-
- /// STANDINGS
+/// STANDINGS
 //  let positionTable = standings[0].standings[0].table;
 //  console.log(positionTable);
 
@@ -64,7 +60,4 @@ resultados2021(partidos);
 // }
 //    }
 
-
-
-   //ESTADISTICAS
-
+//ESTADISTICAS
