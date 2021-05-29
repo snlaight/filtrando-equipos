@@ -56,63 +56,9 @@ fetch("./standings.json")
     };
 
     //DECLARACION FUNCIONES
-     pintarTablaPromedio(Standings);
+    pintarTablaPromedio(Standings);
 
-    //FETCH DE MATCHES
-    fetch("./matches.json")
-      .then((answer) => answer.json())
-      .then((info) => {
-        let matches = info.matches;
-
-        //  obtenerEquipo(nombreEquipo.value , matches)
-
-        // console.log(obtenerEquipo(Standings[0].team.name))
-
-        let filtrarTablaPorCondicion = (equipoElegido) => {
-          let condicionEquipo = [];
-          for (let i = 0; i < equipoElegido.length; i++) {
-            if (radioGanado.checked == true) {
-              condicionEquipo.push(equipoElegido[i]);
-            } else if (radioEmpatado.checked == true) {
-              condicionEquipo.push(equipoElegido[i]);
-            } else if (radioPerdido.checked == true) {
-              condicionEquipo.push(equipoElegido[i]);
-            } else if (
-              radioPerdido.checked == false &&
-              radioGanado.checked == false &&
-              radioEmpatado.checked == false
-            ) {
-              condicionEquipo = equipoElegido;
-            } else if (
-              radioPerdido.checked == false &&
-              radioGanado.checked == false &&
-              radioEmpatado.checked == false &&
-              nombreEquipo.value == ""
-            ) {
-              error.innerHTML = "No has introducido ninguna condición!";
-            }
-          }
-          return equipoElegido;
-        };
-
-        let limpiarPagina = () => {
-          nombreEquipo.value = "";
-          for (let i = 0; i < elementosRadio.length; i++) {
-            elementosRadio[i].checked = false;
-          }
-          cuerpoTabla.innerHTML = "";
-        };
-
-        let resultadosCompletos = (partidos) => {
-          for (let i = 0; i < partidos.length; i++) {
-            if (partidos[i].status == "FINISHED") {
-              let tr = document.createElement("tr");
-              tr.innerHTML = ``;
-            }
-          }
-        };
-        // console.log(matches);
-      });
+   
   });
 
 //DECLARACION FUNCIONES
@@ -128,7 +74,6 @@ let obtenerInformacion = () => {
     .then((data) => {
       let partidos = data.matches;
       obtenerPartidos(partidos);
-      pintarTablaPartidos(partidos);
     });
 };
 
@@ -151,8 +96,9 @@ let obtenerPartidos = (partidos) => {
         partidosEquipo.push(partidos[i]);
       }
     }
-     limpiarPagina();
+    limpiarPagina();
     console.log(partidosEquipo);
+    pintarTablaPartidos(partidosEquipo)
   }
 };
 
@@ -164,23 +110,21 @@ let limpiarPagina = () => {
   cuerpoTabla.innerHTML = "";
 };
 
-let pintarTablaPartidos = (array) => {
+let pintarTablaPartidos = (partidos) => {
   let thead = cabezaTablaPartidos;
   thead.innerHTML = `<th colspan="2">Equipo Local</th>
   <th>Resultado</th>
 <th colspan="2">Equipo Visitante</th>
 `;
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < partidos.length; i++) {
     let tr = document.createElement("tr");
     tr.innerHTML = `
-  <td>${array[i].homeTeam.name}</td>
-  <td>${array[i].homeTeam.name}</td><td><img class="logo" src="https://crests.football-data.org/${array[i].homeTeam.id}.svg"></td>
-  <td>${array[i].score.fullTime.homeTeam}</td>
-  <td>${array[i].score.fullTime.awayTeam}</td>
-  <td><img class="logo" src="https://crests.football-data.org/${array[i].awayTeam.id}.svg"></td>
-  <td>${array[i].awayTeam.name}</td>`;
+  <td>${partidos[i].homeTeam.name}</td><td><img class="logo" src="https://crests.football-data.org/${partidos[i].homeTeam.id}.svg"></td>
+  <td>${partidos[i].score.fullTime.homeTeam} - 
+  ${partidos[i].score.fullTime.awayTeam}</td>
+  <td><img class="logo" src="https://crests.football-data.org/${partidos[i].awayTeam.id}.svg"></td>
+  <td>${partidos[i].awayTeam.name}</td>`;
     cuerpoTablaPartidos.appendChild(tr);
   }
 };
 
-obtenerInformacion();

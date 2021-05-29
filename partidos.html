@@ -42,49 +42,68 @@
         </li>
       </ul>
     </nav>
-<div class="table-container">
-  <div class="inputContainer">
-  <input type="text" class="teamInput" id="NombreEquipo"placeholder="Nombre Equipo"> <button type ="button" class="btn btn-outline-secondary" onclick="botonPulsado()" >BUSCAR RESULTADOS</button>
-  <div class="radio-container input-group">
-    <div class="input-group-prepend">
-    <input type="radio" class ="filtroPartidos" name="filtroPartidos" id="radio-ganado"> GANADOS
-    <input type="radio" class="filtroPartidos" name="filtroPartidos" id="radio-perdido"> PERDIDOS
-    <input type="radio" class="filtroPartidos" name="filtroPartidos" id="radio-empatado"> EMPATADOS
-  </div>
-  </div>
-</div>
-</div>
-<div class="table-container">
-<div class="result-container">
-<table class="table table-bordered table-hover">
- <thead id="cabezaTabla" class="table-light">
-
- </thead>
-  <tbody id="equipoFiltrado" class="align-middle">
-
-  </tbody>
-</table>
-<table class="table table-bordered table-hover">
-  <thead id="cabezaTablaPartidos">
-
-  </thead>
-  <tbody class="partidosEquipo">
-    
-  </tbody>
-</table>
-<p id="error"></p>
-</div>
-</div>
-
-
-
+    <div class="table-container">
+      <div class="inputContainer">
+        <input
+          type="text"
+          class="teamInput"
+          id="NombreEquipo"
+          placeholder="Nombre Equipo"
+        />
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          onclick="botonPulsado()"
+        >
+          BUSCAR RESULTADOS
+        </button>
+        <div class="radio-container input-group">
+          <div class="input-group-prepend">
+            <input
+              type="radio"
+              class="filtroPartidos"
+              name="filtroPartidos"
+              id="radio-ganado"
+            />
+            GANADOS
+            <input
+              type="radio"
+              class="filtroPartidos"
+              name="filtroPartidos"
+              id="radio-perdido"
+            />
+            PERDIDOS
+            <input
+              type="radio"
+              class="filtroPartidos"
+              name="filtroPartidos"
+              id="radio-empatado"
+            />
+            EMPATADOS
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-container">
+      <div class="result-container">
+        <table class="table table-bordered table-hover">
+          <thead id="cabezaTabla" class="table-light"></thead>
+          <tbody id="equipoFiltrado" class="align-middle"></tbody>
+        </table>
+        <table class="table table-bordered table-hover">
+          <thead id="cabezaTablaPartidos"></thead>
+          <tbody id="partidosEquipo" class="align-middle"></tbody>
+        </table>
+        <p id="error"></p>
+      </div>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-      crossorigin="anonymous"></script>
-      
-<script src="partidos.js"></script>
+      crossorigin="anonymous"
+    ></script>
 
+    <script src="partidos.js"></script>
   </body>
 </html>
