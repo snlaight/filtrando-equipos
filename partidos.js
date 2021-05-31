@@ -72,11 +72,13 @@ let obtenerInformacion = () => {
     .then((data) => {
       let partidos = data.matches;
       obtenerPartidos(partidos);
+      console.log(partidos);
     });
 };
 
 let botonPulsado = () => {
   obtenerInformacion();
+
 };
 let obtenerPartidos = (partidos) => {
   console.log(nombreEquipo.value);
@@ -95,7 +97,21 @@ let obtenerPartidos = (partidos) => {
             partidos[i].awayTeam.name == equipoElegido))
       ) {
         partidosEquipo.push(partidos[i]);
-      }
+      } else if ( radioPerdido.checked == true &&
+        ((partidos[i].score.winner == "HOME_TEAM" && 
+          partidos[i].homeTeam.name !== equipoElegido)|| 
+          (partidos[i].score.winner == "AWAY_TEAM" &&
+            partidos[i].awayTeam.name !== equipoElegido))
+            ){
+              partidosEquipo.push(partidos[i])
+            } else if ( radioEmpatado.checked == true &&
+              ((partidos[i].score.winner== "DRAW" &&
+              partidos[i].homeTeam.name == equipoElegido)||
+              (partidos[i].score.winner == "DRAW" &&
+              partidos[i].awayTeam.name == equipoElegido))
+              ){
+                partidosEquipo.push(partidos[i])
+              }
     }
     limpiarPagina();
     console.log(partidosEquipo);
