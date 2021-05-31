@@ -98,10 +98,10 @@ let obtenerPartidos = (partidos) => {
       ) {
         partidosEquipo.push(partidos[i]);
       } else if ( radioPerdido.checked == true &&
-        ((partidos[i].score.winner == "HOME_TEAM" && 
-          partidos[i].homeTeam.name !== equipoElegido)|| 
-          (partidos[i].score.winner == "AWAY_TEAM" &&
-            partidos[i].awayTeam.name !== equipoElegido))
+        ((partidos[i].score.winner == "AWAY_TEAM" && 
+          partidos[i].homeTeam.name == equipoElegido)|| 
+          (partidos[i].score.winner == "HOME_TEAM" &&
+            partidos[i].awayTeam.name == equipoElegido))
             ){
               partidosEquipo.push(partidos[i])
             } else if ( radioEmpatado.checked == true &&
