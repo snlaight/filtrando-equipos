@@ -72,9 +72,9 @@ let obtenerInformacion = (primerRender) => {
     .then((response) => response.json())
     .then((data) => {
       let partidos = data.matches;
-      if(primerRender== "render"){
-        pintarTablaPartidos(partidos)
-      };
+      if (primerRender == "render") {
+        pintarTablaPartidos(partidos);
+      }
       obtenerPartidos(partidos);
       console.log(partidos);
     });
@@ -116,6 +116,11 @@ let obtenerPartidos = (partidos) => {
             partidos[i].awayTeam.name == equipoElegido))
       ) {
         partidosEquipo.push(partidos[i]);
+      } else if (
+        (partidos[i].homeTeam.name == equipoElegido) ||
+        (partidos[i].awayTeam.name == equipoElegido)
+      ){
+        partidosEquipo.push(partidos[i]);
       }
     }
     limpiarPagina();
@@ -126,9 +131,9 @@ let obtenerPartidos = (partidos) => {
 
 let limpiarPagina = () => {
   nombreEquipo.value = "";
-   for (let i = 0; i < elementosRadio.length; i++) {
-     elementosRadio[i].checked = false;
-   }
+  for (let i = 0; i < elementosRadio.length; i++) {
+    elementosRadio[i].checked = false;
+  }
   cuerpoTablaPartidos.innerHTML = "";
 };
 
@@ -151,8 +156,7 @@ let pintarTablaPartidos = (partidos) => {
   }
 };
 
-let esconderLoader = ()=> {
+let esconderLoader = () => {
   document.getElementById("loader").style.display = none;
-}
+};
 obtenerInformacion("render");
-
