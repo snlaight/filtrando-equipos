@@ -8,6 +8,7 @@ let cuerpoTabla = document.getElementById("equipoFiltrado");
 let error = document.getElementById("error");
 let cabezaTablaPartidos = document.getElementById("cabezaTablaPartidos");
 let cuerpoTablaPartidos = document.getElementById("partidosEquipo");
+let loader = document.getElementById("loader");
 
 fetch("./standings.json")
   .then((response) => response.json())
@@ -56,12 +57,12 @@ fetch("./standings.json")
     };
 
     //DECLARACION FUNCIONES
-    pintarTablaPromedio(Standings);
+    // pintarTablaPromedio(Standings);
   });
 
 //DECLARACION FUNCIONES
 
-let obtenerInformacion = () => {
+let obtenerInformacion = (primerRender) => {
   let url =
     "http://api.football-data.org/v2/competitions/PD/matches?dateFrom=2020-09-13&dateTo=2021-05-23";
   fetch(url, {
@@ -71,6 +72,9 @@ let obtenerInformacion = () => {
     .then((response) => response.json())
     .then((data) => {
       let partidos = data.matches;
+      if(primerRender== "render"){
+        pintarTablaPartidos(partidos)
+      };
       obtenerPartidos(partidos);
       console.log(partidos);
     });
@@ -78,7 +82,6 @@ let obtenerInformacion = () => {
 
 let botonPulsado = () => {
   obtenerInformacion();
-
 };
 let obtenerPartidos = (partidos) => {
   console.log(nombreEquipo.value);
@@ -86,7 +89,7 @@ let obtenerPartidos = (partidos) => {
   let partidosEquipo = [];
   if (equipoElegido == "") {
     partidosEquipo = partidos;
-    console.log(partidosEquipo);
+    pintarTablaPartidos(partidosEquipo);
   } else {
     for (let i = 0; i < partidos.length; i++) {
       if (
@@ -97,37 +100,40 @@ let obtenerPartidos = (partidos) => {
             partidos[i].awayTeam.name == equipoElegido))
       ) {
         partidosEquipo.push(partidos[i]);
-      } else if ( radioPerdido.checked == true &&
-        ((partidos[i].score.winner == "AWAY_TEAM" && 
-          partidos[i].homeTeam.name == equipoElegido)|| 
+      } else if (
+        radioPerdido.checked == true &&
+        ((partidos[i].score.winner == "AWAY_TEAM" &&
+          partidos[i].homeTeam.name == equipoElegido) ||
           (partidos[i].score.winner == "HOME_TEAM" &&
             partidos[i].awayTeam.name == equipoElegido))
-            ){
-              partidosEquipo.push(partidos[i])
-            } else if ( radioEmpatado.checked == true &&
-              ((partidos[i].score.winner== "DRAW" &&
-              partidos[i].homeTeam.name == equipoElegido)||
-              (partidos[i].score.winner == "DRAW" &&
-              partidos[i].awayTeam.name == equipoElegido))
-              ){
-                partidosEquipo.push(partidos[i])
-              }
+      ) {
+        partidosEquipo.push(partidos[i]);
+      } else if (
+        radioEmpatado.checked == true &&
+        ((partidos[i].score.winner == "DRAW" &&
+          partidos[i].homeTeam.name == equipoElegido) ||
+          (partidos[i].score.winner == "DRAW" &&
+            partidos[i].awayTeam.name == equipoElegido))
+      ) {
+        partidosEquipo.push(partidos[i]);
+      }
     }
     limpiarPagina();
-    console.log(partidosEquipo);
-    pintarTablaPartidos(partidosEquipo);
   }
+  // esconderLoader();
+  pintarTablaPartidos(partidosEquipo);
 };
 
 let limpiarPagina = () => {
   nombreEquipo.value = "";
-  // for (let i = 0; i < elementosRadio.length; i++) {
-  //   elementosRadio[i].checked = false;
-  // }
-  cuerpoTabla.innerHTML = "";
+   for (let i = 0; i < elementosRadio.length; i++) {
+     elementosRadio[i].checked = false;
+   }
+  cuerpoTablaPartidos.innerHTML = "";
 };
 
 let pintarTablaPartidos = (partidos) => {
+  limpiarPagina();
   let thead = cabezaTablaPartidos;
   thead.innerHTML = `<th colspan="2">Equipo Local</th>
   <th>Resultado</th>
@@ -144,3 +150,9 @@ let pintarTablaPartidos = (partidos) => {
     cuerpoTablaPartidos.appendChild(tr);
   }
 };
+
+let esconderLoader = ()=> {
+  document.getElementById("loader").style.display = none;
+}
+obtenerInformacion("render");
+
