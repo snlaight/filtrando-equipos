@@ -76,7 +76,6 @@ let obtenerInformacion = (primerRender) => {
         pintarTablaPartidos(partidos);
       }
       obtenerPartidos(partidos);
-      console.log(partidos);
     });
 };
 
@@ -116,12 +115,7 @@ let obtenerPartidos = (partidos) => {
             partidos[i].awayTeam.name == equipoElegido))
       ) {
         partidosEquipo.push(partidos[i]);
-      } else if (
-        (partidos[i].homeTeam.name == equipoElegido) ||
-        (partidos[i].awayTeam.name == equipoElegido)
-      ){
-        partidosEquipo.push(partidos[i]);
-      }
+      } 
     }
     limpiarPagina();
   }
