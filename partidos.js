@@ -1,3 +1,4 @@
+//VARIABLES GLOBALES
 let nombreEquipo = document.getElementById("NombreEquipo");
 let radioGanado = document.getElementById("radio-ganado");
 let radioEmpatado = document.getElementById("radio-empatado");
