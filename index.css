@@ -63,8 +63,10 @@ th {
     width: 280px;
     text-align: center;
 }
+#spinner-text {
+    color: #0dcaf0;
 
-
+}
 /* CSS DE LEYENDA */
 .my-legend {
     display: flex;
