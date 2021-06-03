@@ -122,10 +122,13 @@ let obtenerPartidos = (partidos) => {
       }
     }
     pintarTablaPartidos(partidosEquipo);
-  }
-  if (
+  };
+  for ( let i=0; i<partidos.length;i++){
+    if(
     equipoElegido != "" &&
-    elementosRadio[i].checked == false &&
+    radioEmpatado.checked == false &&
+    radioGanado.checked==false &&
+    radioPerdido.checked == false &&
     (partidos[i].homeTeam.name == equipoElegido ||
       partidos[i].awayTeam.name == equipoElegido)
   ) {
@@ -133,7 +136,9 @@ let obtenerPartidos = (partidos) => {
     pintarTablaPartidos(partidosEquipo);
     console.log(partidosEquipo);
   }
+  
   // esconderLoader();
+}
 };
 
 let limpiarPagina = () => {
