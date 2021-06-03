@@ -10,16 +10,16 @@ let error = document.getElementById("error");
 let cabezaTablaPartidos = document.getElementById("cabezaTablaPartidos");
 let cuerpoTablaPartidos = document.getElementById("partidosEquipo");
 let loader = document.getElementById("loader");
-let queryError= document.getElementById("query-error");
+let queryError = document.getElementById("query-error");
 //FUNCIONES
 
 let obtenerInformacion = (primerRender) => {
-  queryError.innerHTML= ``;
   loader.innerHTML = `<div class="spinner-grow text-info" role="status" >
   
       </div>
       <span class="text-center" id="spinner-text">Loading...</span>`;
   cuerpoTablaPartidos.innerHTML = ``;
+
   let url =
     "http://api.football-data.org/v2/competitions/PD/matches?dateFrom=2020-09-13&dateTo=2021-05-23";
   fetch(url, {
@@ -98,11 +98,9 @@ let obtenerPartidos = (partidos) => {
   let equipoElegido = nombreEquipo.value;
   let partidosEquipo = [];
   let isChecked = false;
-
   for (let i = 0; i < elementosRadio.length; i++) {
     if (elementosRadio[i].checked == true) isChecked = true;
   }
-
   if (equipoElegido == "") {
     partidosEquipo = partidos;
     pintarTablaPartidos(partidosEquipo);
@@ -140,9 +138,10 @@ let obtenerPartidos = (partidos) => {
       ) {
         partidosEquipo.push(partidos[i]);
       } else if (
-        equipoElegido != partidos[i].homeTeam.name || partidos[i].awayTeam.name
-      ){
-        queryError.innerHTML= `<p> No se han encontrado resultados</p>`
+        equipoElegido !== partidos[i].homeTeam.name ||
+        partidos[i].awayTeam.name
+      ) {
+        queryError.innerHTML = `<p> No se han encontrado resultados</p>`;
       }
     }
     pintarTablaPartidos(partidosEquipo);
