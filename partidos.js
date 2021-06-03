@@ -10,10 +10,11 @@ let error = document.getElementById("error");
 let cabezaTablaPartidos = document.getElementById("cabezaTablaPartidos");
 let cuerpoTablaPartidos = document.getElementById("partidosEquipo");
 let loader = document.getElementById("loader");
-
+let queryError= document.getElementById("query-error");
 //FUNCIONES
 
 let obtenerInformacion = (primerRender) => {
+  queryError.innerHTML= ``;
   loader.innerHTML = `<div class="spinner-grow text-info" role="status" >
   
       </div>
@@ -138,6 +139,10 @@ let obtenerPartidos = (partidos) => {
           partidos[i].awayTeam.name == equipoElegido)
       ) {
         partidosEquipo.push(partidos[i]);
+      } else if (
+        equipoElegido != partidos[i].homeTeam.name || partidos[i].awayTeam.name
+      ){
+        queryError.innerHTML= `<p> No se han encontrado resultados</p>`
       }
     }
     pintarTablaPartidos(partidosEquipo);
