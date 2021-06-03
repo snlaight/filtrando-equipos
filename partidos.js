@@ -10,56 +10,6 @@ let cabezaTablaPartidos = document.getElementById("cabezaTablaPartidos");
 let cuerpoTablaPartidos = document.getElementById("partidosEquipo");
 let loader = document.getElementById("loader");
 
-fetch("./standings.json")
-  .then((response) => response.json())
-  .then((data) => {
-    //VARIABLES GLOBALES
-    let Standings = data.standings[0].table;
-    let StandingsHome = data.standings[1].table;
-    let StandingsAway = data.standings[2].table;
-
-    //FUNCIONES
-
-    // let botonPulsado = () => {
-    //   let ValorEquipo = nombreEquipo.value;
-    //   let equipo = obtenerEquipo(ValorEquipo);
-    //   let tablaFiltrada = filtrarTablaPorCondicion(equipo);
-    //   limpiarPagina();
-    //   pintarTablaPromedio(tablaFiltrada);
-    // };
-
-    let pintarTablaPromedio = (array) => {
-      let thead = cabezaTabla;
-      thead.innerHTML = `<th>Posicion</th>
-      <th colspan="2">Equipo</th>
-  <th>PJ</th>
-  <th>PG</th>
-  <th>PP</th>
-  <th>PE</th>
-  <th>DG</th>
-  <th>GF</th>
-  <th>GC</th>
-  <th>Puntos</th>`;
-      for (let i = 0; i < array.length; i++) {
-        let tr = document.createElement("tr");
-        tr.innerHTML = `
-      <th>${array[i].position}</th><td><img class="logo" src="https://crests.football-data.org/${array[i].team.id}.svg"></td>
-      <td>${array[i].team.name}</td><td>${array[i].playedGames}</td>
-      <td>${array[i].won}</td>
-      <td>${array[i].lost}</td>
-      <td>${array[i].draw}</td>
-      <td>${array[i].goalDifference}</td>
-      <td>${array[i].goalsFor}</td>
-      <td>${array[i].goalsAgainst}</td>
-      <td>${array[i].points}</td>`;
-        cuerpoTabla.appendChild(tr);
-      }
-    };
-
-    //DECLARACION FUNCIONES
-    // pintarTablaPromedio(Standings);
-  });
-
 //FUNCIONES
 
 let obtenerInformacion = (primerRender) => {

@@ -62,7 +62,7 @@ th {
     text-align: center;
 }
 
-#spinner-text {
+#spinner-text, #error {
     color: #0dcaf0;
 }
 /* CSS DE LEYENDA */
