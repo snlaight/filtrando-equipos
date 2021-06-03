@@ -14,6 +14,7 @@ let queryError = document.getElementById("query-error");
 //FUNCIONES
 
 let obtenerInformacion = (primerRender) => {
+  queryError.innerHTML=``;
   loader.innerHTML = `<div class="spinner-grow text-info" role="status" >
   
       </div>
@@ -172,6 +173,7 @@ let pintarTablaPartidos = (partidos) => {
   <td><img class="logo" src="https://crests.football-data.org/${partidos[i].awayTeam.id}.svg"></td>
   <td>${partidos[i].awayTeam.name}</td>`;
     cuerpoTablaPartidos.appendChild(tr);
+    queryError.innerHTML=``;
   }
 };
 
