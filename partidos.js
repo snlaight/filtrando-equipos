@@ -60,9 +60,13 @@ fetch("./standings.json")
     // pintarTablaPromedio(Standings);
   });
 
-//DECLARACION FUNCIONES
+//FUNCIONES
 
 let obtenerInformacion = (primerRender) => {
+  loader.innerHTML = `<div class="spinner-grow text-info" role="status" >
+  
+      </div>
+      <span class="text-center" id="spinner-text">Loading...</span>`;
   cuerpoTablaPartidos.innerHTML = ``;
   let url =
     "http://api.football-data.org/v2/competitions/PD/matches?dateFrom=2020-09-13&dateTo=2021-05-23";
@@ -81,15 +85,72 @@ let obtenerInformacion = (primerRender) => {
         pintarTablaPartidos(partidos);
       }
       obtenerPartidos(partidos);
+      // obtenerPosicionTabla()
+    })
+    .catch((err) => {
+      loader.innerHTML = `<div class="spinner-grow text-info visually-hidden" role="status" >
+  
+      </div>
+      <span class="text-center visually-hidden" id="spinner-text">Loading...</span>`;
+      error.innerHTML = `<p>Se ha cometido un error. Vuelve a internar mas tarde</p>`;
+    });
+};
+
+let pintarTablaPosicion = (array) => {
+  let thead = cabezaTabla;
+  thead.innerHTML = `<th>Posicion</th>
+  <th colspan="2">Equipo</th>
+<th>PJ</th>
+<th>PG</th>
+<th>PP</th>
+<th>PE</th>
+<th>DG</th>
+<th>GF</th>
+<th>GC</th>
+<th>Puntos</th>`;
+  for (let i = 0; i < array.length; i++) {
+    let tr = document.createElement("tr");
+    tr.innerHTML = `
+  <th>${array[i].position}</th><td><img class="logo" src="https://crests.football-data.org/${array[i].team.id}.svg"></td>
+  <td>${array[i].team.name}</td><td>${array[i].playedGames}</td>
+  <td>${array[i].won}</td>
+  <td>${array[i].lost}</td>
+  <td>${array[i].draw}</td>
+  <td>${array[i].goalDifference}</td>
+  <td>${array[i].goalsFor}</td>
+  <td>${array[i].goalsAgainst}</td>
+  <td>${array[i].points}</td>`;
+    cuerpoTabla.appendChild(tr);
+  }
+};
+
+let obtenerPosicionTabla = (equipo) => {
+  let url = "https://api.football-data.org/v2/competitions/2014/standings";
+  fetch(url, {
+    method: "GET",
+    headers: { "X-Auth-Token": "74972694e7e94ad898f69d3d5c0f74e3" },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      let standings = data.standings[0].table;
+      console.log(standings);
+      pintarTablaPosicion();
     });
 };
 
 let botonPulsado = () => {
   obtenerInformacion();
 };
+
 let obtenerPartidos = (partidos) => {
   let equipoElegido = nombreEquipo.value;
   let partidosEquipo = [];
+  let isChecked = false;
+
+  for (let i = 0; i < elementosRadio.length; i++) {
+    if (elementosRadio[i].checked == true) isChecked = true;
+  }
+
   if (equipoElegido == "") {
     partidosEquipo = partidos;
     pintarTablaPartidos(partidosEquipo);
@@ -119,26 +180,17 @@ let obtenerPartidos = (partidos) => {
             partidos[i].awayTeam.name == equipoElegido))
       ) {
         partidosEquipo.push(partidos[i]);
+      } else if (
+        equipoElegido != "" &&
+        isChecked == false &&
+        (partidos[i].homeTeam.name == equipoElegido ||
+          partidos[i].awayTeam.name == equipoElegido)
+      ) {
+        partidosEquipo.push(partidos[i]);
       }
     }
     pintarTablaPartidos(partidosEquipo);
-  };
-  for ( let i=0; i<partidos.length;i++){
-    if(
-    equipoElegido != "" &&
-    radioEmpatado.checked == false &&
-    radioGanado.checked==false &&
-    radioPerdido.checked == false &&
-    (partidos[i].homeTeam.name == equipoElegido ||
-      partidos[i].awayTeam.name == equipoElegido)
-  ) {
-    partidosEquipo.push(partidos[i]);
-    pintarTablaPartidos(partidosEquipo);
-    console.log(partidosEquipo);
   }
-  
-  // esconderLoader();
-}
 };
 
 let limpiarPagina = () => {
@@ -166,10 +218,6 @@ let pintarTablaPartidos = (partidos) => {
   <td>${partidos[i].awayTeam.name}</td>`;
     cuerpoTablaPartidos.appendChild(tr);
   }
-};
-
-let esconderLoader = () => {
-  document.getElementById("loader").style.display = none;
 };
 
 //DECLARACION FUNCIONES
