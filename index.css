@@ -81,6 +81,11 @@ th {
 .red {
     color: yellowgreen;
 }
+
+.features {
+    background: linear-gradient(to bottom, rgba(250, 250, 250, 0.89), rgba(1, 2, 66, 0.521));
+    margin-bottom: 0px;
+}
 /* CSS DE LEYENDA */
 .my-legend {
     display: flex;
