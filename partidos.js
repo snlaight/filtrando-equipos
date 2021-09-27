@@ -41,6 +41,7 @@ let obtenerInformacion = (primerRender) => {
       // obtenerPosicionTabla()
     })
     .catch((err) => {
+      console.log(err);
       loader.innerHTML = `<div class="spinner-grow text-info visually-hidden" role="status" >
   
       </div>
